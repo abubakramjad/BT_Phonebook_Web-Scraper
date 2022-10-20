@@ -2,7 +2,8 @@ from bs4 import BeautifulSoup
 from csv import DictWriter
 import requests
 
-with open('UK_Data_Mining_Project/BT_Data2.csv','w',newline="") as f:
+file_name=input("Please enter a file name to create a new csv file or overwrite an existing one to store your scraped data: ")
+with open(f'{file_name}.csv','w+',newline="") as f:
     csv_writer=DictWriter(f, fieldnames=['NAME','PHONE','STREET','CITY', 'ZIPCODE'])
     csv_writer.writeheader()
     uk_lnames=list(input("Please enter a name or a series of names separated by comma ',': ").split(","))
